@@ -11,11 +11,15 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 1f;
     [SerializeField] int health = 200;
+    [SerializeField] AudioClip deathSound = default;
+    [SerializeField] [Range(0, 1)] float deathSoundVolume = 0.75f;
 
     [Header("Projectile")]
     [SerializeField] GameObject missilePrefab = default;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileFiringPeriod = 0.2f;
+    [SerializeField] AudioClip missileSound = default;
+    [SerializeField] [Range(0,1)] float missileSoundVolume = 0.2f;
 
     Coroutine firingCoroutine;
 
@@ -23,9 +27,6 @@ public class Player : MonoBehaviour
     float xMax;
     float yMin;
     float yMax;
-
-    // referenced cache
-    
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +69,7 @@ public class Player : MonoBehaviour
         {
             GameObject missile = Instantiate(missilePrefab, transform.position, Quaternion.identity);
             missile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            AudioSource.PlayClipAtPoint(missileSound, Camera.main.transform.position, missileSoundVolume);
             yield return new WaitForSeconds(projectileFiringPeriod);
         }  
     }
@@ -97,7 +99,13 @@ public class Player : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
     }
 }

@@ -116,6 +116,13 @@ MonoBehaviour:
   projectileSpeed: 5
   missilePrefab: {fileID: 4240572882664450166, guid: 6c9e486415ad5d540be4ce02a635ef2d,
     type: 3}
+  explosionPrefab: {fileID: 6092240014917681794, guid: 21c2b3221c46dd447a21dc5932e191ef,
+    type: 3}
+  durationOfExplosion: 1
+  deathSound: {fileID: 8300000, guid: 0b5b91c832d13aa4e95543d1cac78c4d, type: 3}
+  deathSoundVolume: 0.75
+  missileSound: {fileID: 8300000, guid: a71dcf38b8b64494580d3b137194923a, type: 3}
+  missileSoundVolume: 0.2
 --- !u!58 &8836782584919708473
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -99,10 +99,14 @@ MonoBehaviour:
   moveSpeed: 10
   padding: 1
   health: 200
+  deathSound: {fileID: 8300000, guid: 0b5b91c832d13aa4e95543d1cac78c4d, type: 3}
+  deathSoundVolume: 0.75
   missilePrefab: {fileID: 4240572882664450166, guid: 7e931c9f18b54184c88197a3d94afa62,
     type: 3}
   projectileSpeed: 10
   projectileFiringPeriod: 0.2
+  missileSound: {fileID: 8300000, guid: 17098d234d3d17645a2f90247c8de588, type: 3}
+  missileSoundVolume: 0.2
 --- !u!61 &466451352
 BoxCollider2D:
   m_ObjectHideFlags: 0
