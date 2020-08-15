@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1154422347}
   - component: {fileID: -7354852415612634266}
   - component: {fileID: -7526516477436485104}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,6 +110,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  shotCounter: 0
+  minTimeBetweenShots: 0.2
+  maxTimeBetweenShots: 3
+  projectileSpeed: 5
+  missilePrefab: {fileID: 4240572882664450166, guid: 213a67db63da6ef4f95ac4ffd040df5e,
+    type: 3}
 --- !u!58 &-7526516477436485104
 CircleCollider2D:
   m_ObjectHideFlags: 0
