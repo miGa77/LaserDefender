@@ -6,12 +6,18 @@ public class Enemy : MonoBehaviour
 {
 
     // config params
+    [Header("Enemy Stats")]
     [SerializeField] float health = 100;
+    [SerializeField] int scoreValue = 150;
+
+    [Header("Shooting")]
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] float projectileSpeed = 2f;
     [SerializeField] GameObject missilePrefab = default;
+
+    [Header("Sound Effects")]
     [SerializeField] GameObject explosionPrefab = default;
     [SerializeField] float durationOfExplosion = 1f;
     [SerializeField] AudioClip deathSound = default;
@@ -70,6 +76,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        FindObjectOfType<GameSession>().AddToScore(scoreValue);
         Destroy(gameObject);
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
         GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
